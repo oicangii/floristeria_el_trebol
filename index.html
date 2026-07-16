@@ -389,7 +389,6 @@
                 aspect-ratio: 4 / 3; 
             }
 
-            /* MODIFICADO: Bloque de texto todavía más arriba (top: 10%) */
             .texto-portada {
                 width: 85%;
                 left: 8%;
@@ -397,20 +396,32 @@
                 transform: translateY(0); 
             }
 
+            /* MODIFICADO: Añadido un espacio flex para evitar que las palabras se junten en móvil */
+            .texto-portada h2 {
+                font-size: clamp(1rem, 4.2vw, 1.4rem); /* MODIFICADO: Título un poco más pequeño */
+                margin-bottom: 3px;
+                white-space: nowrap; 
+                display: flex;
+                gap: 6px; /* Garantiza separación física de palabras */
+            }
+
+            /* MODIFICADO: Quitada la etiqueta <br> y asegurado espacio en el flujo HTML */
             .texto-portada h2 br {
                 display: none;
             }
 
-            .texto-portada h2 {
-                font-size: clamp(1.2rem, 5vw, 1.8rem);
-                margin-bottom: 3px;
-                white-space: nowrap; 
+            /* MODIFICADO: Quitada la negrita (font-weight: 300) y hecho más pequeño el texto */
+            .texto-portada p {
+                font-weight: 300; 
+                letter-spacing: 1px;
+                font-size: clamp(0.55rem, 2.2vw, 0.75rem);
             }
 
-            .texto-portada p {
-                font-weight: 600;
-                letter-spacing: 1px;
-                font-size: clamp(0.65rem, 2.5vw, 0.85rem);
+            /* MODIFICADO: Botón de hacer pedido un poco más pequeño */
+            .btn-pedido {
+                margin-top: 8px;
+                font-size: clamp(0.5rem, 1.8vw, 0.65rem);
+                padding: 4px 10px;
             }
 
             .galeria-muestras {
@@ -484,7 +495,7 @@
         <img src="foto_1.jpg" alt="Portada de El Trébol">
         
         <div class="texto-portada">
-            <h2>Siente<br>florecer</h2>
+            <h2>Siente <span>florecer</span></h2>
             <p>Floristería en Torrejón de Ardoz</p>
             <a href="#contacto" class="btn-pedido">Hacer un pedido</a>
         </div>
