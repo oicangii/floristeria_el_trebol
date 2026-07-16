@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -116,6 +117,11 @@
             line-height: 1.1; 
             margin-bottom: 5px; 
             letter-spacing: -0.5px;
+        }
+
+        /* Salto de línea por defecto para ordenador */
+        .texto-portada h2 br {
+            display: inline;
         }
 
         .texto-portada p {
@@ -385,14 +391,29 @@
                 aspect-ratio: 4 / 3; 
             }
 
+            /* MODIFICADO: Bloque de texto posicionado ARRIBA en móviles */
             .texto-portada {
-                width: 80%;
+                width: 85%;
                 left: 8%;
+                top: 25%; /* Desplaza el contenido hacia arriba */
+                transform: translateY(0); /* Remueve la alineación central */
+            }
+
+            /* MODIFICADO: Elimina el salto de línea en "Siente Florecer" */
+            .texto-portada h2 br {
+                display: none;
+            }
+
+            .texto-portada h2 {
+                font-size: clamp(1.2rem, 5vw, 1.8rem);
+                margin-bottom: 3px;
+                white-space: nowrap; /* Asegura que se quede en una única línea */
             }
 
             .texto-portada p {
                 font-weight: 600;
                 letter-spacing: 1px;
+                font-size: clamp(0.65rem, 2.5vw, 0.85rem);
             }
 
             .galeria-muestras {
@@ -416,7 +437,6 @@
                 padding: 20px;
             }
 
-            /* MODIFICADO: Letra de contacto todavía más pequeña y compacta en móvil */
             .titulo-contacto {
                 font-size: 1.15rem;
                 margin-bottom: 10px;
