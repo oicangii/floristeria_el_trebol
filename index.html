@@ -29,19 +29,19 @@
             align-items: center;
             padding-top: 25px; 
             width: 100%; 
-            overflow-x: hidden; 
+            overflow-x: hidden; /* Evita que la web se mueva hacia los lados en móviles */
         }
 
         .wrapper {
             width: 96%; 
         }
 
+        /* Cabecera adaptada para flexbox */
         .header-superior {
             display: flex;
+            justify-content: space-between;
             align-items: center;            
-            position: relative; 
             margin-bottom: 25px;             
-            height: 40px; 
             width: 100%;
         }
 
@@ -50,16 +50,13 @@
             font-weight: 700; 
             font-size: clamp(0.8rem, 1.5vw, 1.05rem); 
             line-height: 0.85; 
-            text-align: left; 
-            position: absolute;
-            left: 0;
             display: flex;
             align-items: center;
             gap: 8px; 
         }
 
         .logo-header {
-            height: clamp(20px, 3vw, 30px); 
+            height: clamp(25px, 3vw, 30px); 
             width: auto;
             object-fit: contain;
         }
@@ -68,20 +65,15 @@
             font-weight: 300; 
         }
 
-        /* MODIFICADO: Menú limpio con solo dos enlaces */
         .menu-navegacion {
             display: flex;
-            gap: 40px; 
-            position: absolute;
-            left: 50%;
-            top: 50%; 
-            transform: translate(-50%, -50%); 
+            gap: 25px; 
         }
 
         .menu-navegacion a {
             font-family: 'Poppins', sans-serif; 
-            font-weight: 400;
-            font-size: clamp(0.7rem, 1.5vw, 0.95rem); 
+            font-weight: 450;
+            font-size: clamp(0.75rem, 1.5vw, 0.95rem); 
             color: #333333;
             text-decoration: none; 
             transition: color 0.2s;
@@ -93,6 +85,7 @@
             color: #666666; 
         }
 
+        /* Portada con proporciones seguras */
         .portada-container {
             width: 100%; 
             aspect-ratio: 28 / 10; 
@@ -114,15 +107,15 @@
             transform: translateY(-50%); 
             text-align: left;     
             color: #4A4A4A;       
-            width: 40%;           
+            width: 45%;           
         }
 
         .texto-portada h2 {
             font-family: 'Poppins', sans-serif; 
             font-weight: 600; 
-            font-size: clamp(1.4rem, 4vw, 3rem);
+            font-size: clamp(1.1rem, 3.8vw, 3rem);
             text-transform: uppercase; 
-            line-height: 1.05; 
+            line-height: 1.1; 
             margin-bottom: 5px; 
             letter-spacing: -0.5px;
         }
@@ -130,23 +123,23 @@
         .texto-portada p {
             font-family: 'Poppins', sans-serif; 
             font-weight: 300; 
-            font-size: clamp(0.7rem, 1.5vw, 1rem); 
-            letter-spacing: 2px; 
+            font-size: clamp(0.6rem, 1.5vw, 1rem); 
+            letter-spacing: 1.5px; 
         }
 
         .btn-pedido {
             display: inline-block;
-            margin-top: 15px; 
+            margin-top: 10px; 
             background-color: #E5989B; 
             color: #FFFFFF;
             text-decoration: none;
             font-family: 'Poppins', sans-serif;
-            font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+            font-size: clamp(0.6rem, 1.2vw, 0.8rem);
             font-weight: 500;
-            padding: 8px 18px;
+            padding: 6px 14px;
             border-radius: 4px; 
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             transition: background-color 0.2s ease;
         }
 
@@ -155,11 +148,11 @@
         }
 
         /* ==================================================
-           CARRUSEL
+           CARRUSEL (Altura óptima para todos los dispositivos)
            ================================================== */
         .caja-animacion {
             width: 100%;
-            height: 250px; 
+            height: clamp(150px, 20vw, 250px); 
             position: relative; 
             background-color: #FFFFFF;
             overflow: hidden; 
@@ -170,7 +163,7 @@
 
         .carrusel-track {
             display: flex;
-            gap: 30px; 
+            gap: 20px; 
             width: max-content;
             animation: desplazar-carrusel 20s linear infinite;
         }
@@ -180,10 +173,9 @@
         }
 
         .rectangulo {
-            width: 285px; 
-            height: 200px; 
+            width: clamp(200px, 25vw, 285px); 
+            height: clamp(130px, 17vw, 200px); 
             flex-shrink: 0; 
-            border-radius: 0px; 
         }
 
         .rec-1 { background-image: url('carrusel_funerarios.png'); background-size: cover; background-position: center; background-repeat: no-repeat; }
@@ -219,7 +211,7 @@
 
         .galeria-muestras {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
             gap: 20px;
             align-items: start; 
         }
@@ -235,60 +227,6 @@
 
         .foto-muestra:hover {
             transform: scale(1.03); 
-        }
-
-        /* ==================================================
-           MODAL VISOR DE FOTOS
-           ================================================== */
-        .modal-visor {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .modal-visor.activo {
-            display: flex;
-            opacity: 1;
-        }
-
-        .imagen-maximizada {
-            max-width: 90%;
-            max-height: 85%;
-            object-fit: contain;
-            border-radius: 4px;
-            box-shadow: 0px 4px 20px rgba(0,0,0,0.5);
-            transform: scale(0.95);
-            transition: transform 0.3s ease;
-        }
-
-        .modal-visor.activo .imagen-maximizada {
-            transform: scale(1);
-        }
-
-        .cruz-cerrar {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: #FFFFFF;
-            font-size: 50px;
-            font-weight: 300;
-            cursor: pointer;
-            user-select: none;
-            transition: color 0.2s;
-            line-height: 1;
-        }
-
-        .cruz-cerrar:hover {
-            color: #E5989B;
         }
 
         /* ==================================================
@@ -322,7 +260,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 20px;
+            padding: 30px;
             background-color: #FAF9F9;
             border-radius: 6px;
         }
@@ -381,16 +319,110 @@
             color: #D48386;
         }
 
-        @media (max-width: 768px) {
-            .seccion-contacto {
-                flex-direction: column;
-                gap: 20px;
-            }
-            .contenedor-mapa {
-                min-height: 300px;
-            }
+        /* ==================================================
+           VISOR DE FOTOS MODAL
+           ================================================== */
+        .modal-visor {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
+        .modal-visor.activo {
+            display: flex;
+            opacity: 1;
+        }
+
+        .imagen-maximizada {
+            max-width: 90%;
+            max-height: 85%;
+            object-fit: contain;
+            border-radius: 4px;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-visor.activo .imagen-maximizada {
+            transform: scale(1);
+        }
+
+        .cruz-cerrar {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #FFFFFF;
+            font-size: 50px;
+            font-weight: 300;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        /* ==================================================
+           MEDIA QUERIES (REGLAS EXCLUSIVAS PARA MÓVILES)
+           ================================================== */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 15px;
+            }
+
+            /* Reorganiza la cabecera en vertical para que no se amontone */
+            .header-superior {
+                flex-direction: column;
+                gap: 12px;
+                align-items: center;
+                margin-bottom: 15px;
+            }
+
+            .menu-navegacion {
+                gap: 25px;
+            }
+
+            /* Cambia la proporción de la portada para que sea más alta en móviles */
+            .portada-container {
+                aspect-ratio: 4 / 3; 
+            }
+
+            .texto-portada {
+                width: 80%;
+                left: 8%;
+            }
+
+            /* Adaptación de la galería a pantallas pequeñas */
+            .galeria-muestras {
+                grid-template-columns: repeat(2, 1fr); /* Muestra 2 fotos por fila */
+                gap: 10px;
+            }
+
+            /* Coloca el mapa y el contacto uno debajo de otro */
+            .seccion-contacto {
+                flex-direction: column;
+                gap: 25px;
+                margin: 40px auto;
+            }
+
+            .contenedor-mapa {
+                min-height: 300px; /* Reduce un poco la altura del mapa */
+                order: 2; /* Pone el mapa abajo */
+            }
+
+            .bloque-info-contacto {
+                order: 1; /* Pone los datos de llamada arriba (más prioritario en móviles) */
+                padding: 20px;
+            }
+
+            .telefono-enlace {
+                font-size: 1.4rem;
+            }
+        }
     </style>
 </head>
 <body>
