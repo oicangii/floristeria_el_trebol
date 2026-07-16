@@ -232,7 +232,7 @@
         }
 
         /* ==================================================
-           SECCIÓN: CONTACTO Y MAPA
+           SECCIÓN: CONTACTO Y MAPA (Restaurado para ordenador)
            ================================================== */
         .seccion-contacto {
             width: 96%;
@@ -278,7 +278,7 @@
         }
 
         .mensaje-llamada {
-            font-size: 0.75rem;
+            font-size: 1.05rem; /* Restaurado tamaño de ordenador */
             line-height: 1.6;
             color: #555555;
             margin-bottom: 25px;
@@ -304,7 +304,7 @@
         }
 
         .dato-contacto p {
-            font-size: 0.78rem;
+            font-size: 1.1rem; /* Restaurado tamaño de ordenador */
             color: #333333;
             font-weight: 500;
         }
@@ -396,28 +396,24 @@
                 transform: translateY(0); 
             }
 
-            /* MODIFICADO: Añadido un espacio flex para evitar que las palabras se junten en móvil */
             .texto-portada h2 {
-                font-size: clamp(1rem, 4.2vw, 1.4rem); /* MODIFICADO: Título un poco más pequeño */
+                font-size: clamp(1rem, 4.2vw, 1.4rem); 
                 margin-bottom: 3px;
                 white-space: nowrap; 
                 display: flex;
-                gap: 6px; /* Garantiza separación física de palabras */
+                gap: 6px; 
             }
 
-            /* MODIFICADO: Quitada la etiqueta <br> y asegurado espacio en el flujo HTML */
             .texto-portada h2 br {
                 display: none;
             }
 
-            /* MODIFICADO: Quitada la negrita (font-weight: 300) y hecho más pequeño el texto */
             .texto-portada p {
                 font-weight: 300; 
                 letter-spacing: 1px;
                 font-size: clamp(0.55rem, 2.2vw, 0.75rem);
             }
 
-            /* MODIFICADO: Botón de hacer pedido un poco más pequeño */
             .btn-pedido {
                 margin-top: 8px;
                 font-size: clamp(0.5rem, 1.8vw, 0.65rem);
@@ -445,13 +441,14 @@
                 padding: 20px;
             }
 
+            /* NUEVO: Tamaños reducidos agregados CORRECTAMENTE en la sección móvil */
             .titulo-contacto {
-                font-size: 1.15rem;
+                font-size: 1.05rem; /* Antes 1.15rem */
                 margin-bottom: 10px;
             }
 
             .mensaje-llamada {
-                font-size: 0.8rem;
+                font-size: 0.75rem; /* Antes 0.8rem */
                 line-height: 1.4;
                 margin-bottom: 15px;
             }
@@ -461,16 +458,16 @@
             }
 
             .dato-contacto h3 {
-                font-size: 0.7rem;
+                font-size: 0.65rem; /* Antes 0.7rem */
                 margin-bottom: 2px;
             }
 
             .dato-contacto p {
-                font-size: 0.85rem;
+                font-size: 0.78rem; /* Antes 0.85rem */
             }
 
             .telefono-enlace {
-                font-size: 1.15rem;
+                font-size: 1.05rem; /* Antes 1.15rem */
             }
         }
     </style>
