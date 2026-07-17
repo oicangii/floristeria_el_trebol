@@ -20,6 +20,35 @@
             padding: 0;
         }
 
+        /* PANTALLA DE CARGA (PRELOADER) */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #FFFFFF;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000; /* Por encima de absolutamente todo */
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        /* El icono del trébol */
+        .trebol-loader {
+            font-size: 70px;
+            color: #E5989B; /* Color a juego con tus botones */
+            animation: girar 1.5s linear infinite;
+            user-select: none;
+        }
+
+        /* Animación de rotación */
+        @keyframes girar {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         body {
             background-color: #FFFFFF;
             font-family: 'Poppins', Arial, sans-serif; 
@@ -366,12 +395,11 @@
             line-height: 1;
         }
 
-        /* NUEVO: Estilos para la barra gris del final */
         .footer-creditos {
             width: 100%;
-            background-color: #F4F4F4; /* Gris suave */
-            padding: 15px 4%; /* Margen lateral que se alinea con el contenido */
-            text-align: left; /* Alineado a la izquierda */
+            background-color: #F4F4F4; 
+            padding: 15px 4%; 
+            text-align: left; 
             margin-top: 40px;
         }
 
@@ -486,12 +514,16 @@
             }
             
             .footer-creditos {
-                padding: 12px 6%; /* Ajuste de margen lateral en móviles */
+                padding: 12px 6%; 
             }
         }
     </style>
 </head>
 <body>
+
+    <div id="preloader">
+        <div class="trebol-loader">☘</div>
+    </div>
 
     <div class="wrapper">
         <header class="header-superior">
@@ -594,6 +626,15 @@
     </footer>
 
     <script>
+        // CONTROL DEL PRELOADER (PANTALLA DE CARGA)
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            // Difuminado suave antes de ocultarlo
+            preloader.style.opacity = '0';
+            preloader.style.visibility = 'hidden';
+        });
+
+        // VISOR DE IMÁGENES MODAL
         const modal = document.getElementById('modalVisor');
         const imgMaximizada = document.getElementById('imgMaximizada');
         const btnCerrar = document.getElementById('btnCerrar');
